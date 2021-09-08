@@ -1,5 +1,7 @@
-# Simple3D
- Easy to use wrapper for ThreeJS
+# Simple3D  --> _under development_
+ Easy to use wrapper for ThreeJS  
+ 
+
 
 # Goals
 * Make a 3d scene easily with presets
