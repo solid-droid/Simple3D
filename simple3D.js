@@ -71,6 +71,8 @@ class simple3D{
             ZOOM: THREE.MOUSE.MIDDLE,
             PAN: THREE.MOUSE.LEFT
         };
+        controls.touches.ONE = THREE.TOUCH.PAN;
+        controls.touches.TWO = THREE.TOUCH.DOLLY_ROTATE;
         controls.minDistance  =50;
         controls.maxDistance  = 300;
         controls.enableDamping = true; 
