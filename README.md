@@ -1,6 +1,6 @@
-# Simple3D  --> _under development_
+# Simple3D
  Easy to use wrapper for ThreeJS  
- 
+ Live Demo => https://solid-droid.github.io/Simple3D/  
 
 
 # Goals
