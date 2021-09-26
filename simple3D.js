@@ -71,6 +71,7 @@ class simple3D{
             ZOOM: THREE.MOUSE.MIDDLE,
             PAN: THREE.MOUSE.LEFT
         };
+        controls.screenSpacePanning = false;
         controls.minDistance  =50;
         controls.maxDistance  = 300;
         controls.enableDamping = true; 
