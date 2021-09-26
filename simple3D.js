@@ -57,7 +57,7 @@ class simple3D{
         this.sceneList[name] = scene;
     }
 
-    createCamera(name , angle = 45, min = 10 , max = 10000) {
+    createCamera(name , angle = 50, min = 0.1 , max = 10000) {
         const camera = new THREE.PerspectiveCamera( angle, window.innerWidth / window.innerHeight, min , max);
         this.cameraList[name] = camera;
         this.setCamera(name);
