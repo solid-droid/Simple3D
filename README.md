@@ -11,11 +11,9 @@
 
 # How to use
 ```html
-<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r96/three.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/paulmasson/threejs-with-controls@r121/build/three.min.js"></script>
 <script src="https://rawcdn.githack.com/mrdoob/three.js/r96/examples/js/loaders/GLTFLoader.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-<script src='./lib/threex.domevents.js'></script>
-<script src='./lib/orbit.js'></script>
 <script  src="./simple3D.js"></script>
 ```
   
