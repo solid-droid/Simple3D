@@ -40,6 +40,7 @@ export class Simple3D {
     pipeline: any;
     localAxes: any;
     
+    static pointer:any = {event:undefined,pickResult:undefined } ;
     static yAxis = new BABYLON.Vector3(0, 1, 0);
     static xAxis = new BABYLON.Vector3(1, 0, 0);
     static zAxis = new BABYLON.Vector3(0, 0, 1);
@@ -65,6 +66,12 @@ export class Simple3D {
     createScene(): void {
         this.scene = new BABYLON.Scene(this.engine);
         this.scene.clearColor = new BABYLON.Color4(0,0,0,1).toLinearSpace();
+        this.scene.onPointerDown = function (event, pickResult){
+            Simple3D.pointer = {
+                event,
+                pickResult
+            }
+        }
     }
 
     createStats(): void {

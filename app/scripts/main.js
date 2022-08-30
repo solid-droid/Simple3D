@@ -20,24 +20,22 @@ function init(){
 
     ground.set.scale(10, 10)
           .set.grid()
-          
     new TWEEN.Tween(box)
-             .to({ 
-              height:3,
-            }, 2000)
+             .to({height:5}, 2000)
              .repeat(Infinity)
              .yoyo(true)
-             .onUpdate(({height}) => {
+             .interpolation(TWEEN.Interpolation.Linear)
+             .onUpdate(() => {
               utils.rotateAroundPivot(
                 box.mesh, 
                 new Vector3(0.5, 0, 0.5), 
                 new Vector3(0, 1, 0), 
-                height*0.01
+                0.01
                 )
             })
              .start();
          
-    box2.on('longClick',()=> {
+    box2.on('longClick',(e)=> {
         console.log('hello');
     });
     scene.showStats()
