@@ -25,7 +25,7 @@ async function init(){
     chokidar.watch(watchDirectories).on('all', (event, path) => rebuildJS(path));
 }
 
-function debounce(cb, delay = 100) {
+function debounce(cb, delay = 1000) {
     let timeout
   
     return (...args) => {

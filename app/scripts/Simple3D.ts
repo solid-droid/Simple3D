@@ -145,6 +145,102 @@ export class Simple3D {
 
 }
 
+class domEvents {
+    
+    click(mesh:any, scene:any, callBack:()=>void){
+        mesh.isPickable = true;
+        mesh.actionManager ??= new BABYLON.ActionManager(scene); 
+        mesh.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnPickTrigger,
+                callBack
+            ));
+    }
+
+    leftClick(mesh:any, scene:any, callBack:()=>void){
+        mesh.isPickable = true;
+        mesh.actionManager ??= new BABYLON.ActionManager(scene); 
+        mesh.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnLeftPickTrigger,
+                callBack
+            ));
+    }
+
+    rightClick(mesh:any, scene:any, callBack:()=>void){
+        mesh.isPickable = true;
+        mesh.actionManager ??= new BABYLON.ActionManager(scene); 
+        mesh.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnRightPickTrigger,
+                callBack
+            ));
+    }
+
+    centerClick(mesh:any, scene:any, callBack:()=>void){
+        mesh.isPickable = true;
+        mesh.actionManager ??= new BABYLON.ActionManager(scene); 
+        mesh.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnCenterPickTrigger,
+                callBack
+            ));
+    }
+    doubleClick(mesh:any, scene:any, callBack:()=>void){
+        mesh.isPickable = true;
+        mesh.actionManager ??= new BABYLON.ActionManager(scene); 
+        mesh.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnDoublePickTrigger,
+                callBack
+            ));
+    }
+
+    longClick(mesh:any, scene:any, callBack:()=>void){
+        mesh.isPickable = true;
+        mesh.actionManager ??= new BABYLON.ActionManager(scene); 
+        mesh.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnLongPressTrigger,
+                callBack
+            ));
+    }
+
+
+    mouseEnter(mesh:any, scene:any, callBack:()=>void){
+        mesh.actionManager ??= new BABYLON.ActionManager(scene); 
+        mesh.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnPointerOverTrigger,
+                callBack
+            ));
+    }
+
+    mouseExit(mesh:any, scene:any, callBack:()=>void){
+        mesh.actionManager ??= new BABYLON.ActionManager(scene); 
+        mesh.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnPointerOutTrigger,
+                callBack
+            ));
+    }
+
+    intersect(mesh1:any , mesh2:any, scene, callBack:()=>void , type : 'enter' | 'exit' = 'enter'){
+        mesh1.actionManager ??= new BABYLON.ActionManager(scene); 
+        const event = type == 'enter' ? BABYLON.ActionManager.OnIntersectionEnterTrigger : BABYLON.ActionManager.OnIntersectionEnterTrigger; 
+        mesh1.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction( {
+                trigger: event, 
+                parameter: { 
+                    mesh: mesh2, 
+                    usePreciseIntersection: true
+                }
+            } ,
+                callBack
+            ));
+    }
+
+}
 
 export class sphere3D {
     scene : any;
@@ -247,7 +343,7 @@ export class ground2D {
     }
 }
 
-export class box3D {
+export class box3D extends domEvents {
 
     type: string = 'box3D';
     scene : any;
@@ -451,6 +547,7 @@ export class box3D {
         depth: 1,
         opacity: 1,
     }) {
+        super();
         this.#name = params.name || this.#name;
         this.#color = params.color || this.#color;
         this.#showEdge = params.showEdge || this.#showEdge;
@@ -491,6 +588,23 @@ export class box3D {
         this.scene.removeMesh(this.mesh);
         this.scene.removeMaterial(this.material, "mat");
     }
-    
 
+    on(event:event, callBack:()=>void){
+        super[event](this.mesh, this.scene, callBack);
+    }
+    intersect(mesh:any, callBack:()=>void, type : 'enter' | 'exit' = 'enter'){
+        super.intersect(this.mesh, mesh, this.scene, callBack, type);
+    }
 }
+
+type event = 
+'click' | 
+'leftClick'| 
+'rightClick' | 
+'centerClick' |
+'doubleClick' |
+'longClick' |
+'mouseEnter' |
+'mouseExit'
+
+

@@ -37,7 +37,9 @@ function init(){
             })
              .start();
          
-    box.test();
+    box2.on('longClick',()=> {
+        console.log('hello');
+    });
     scene.showStats()
          .showAxis()
          .render([TWEEN.update]);      
