@@ -14,7 +14,7 @@ Library uses typescript and ESbuild to generate final javascript bundle.
 - clone the project  
 - ```npm install```
 - ```npm run start``` This will check files for changes and rebuilds automatically
-- If you are using VScode IDE, the run live-server extension for live view of the website. (Auto refreshed when file updates)  
+- If you are using VScode IDE, then run live-server extension for live view of the website. 
 - Bundled Script is available in bundle folder  
 - App folder holds the basic app code (JS should kept in app/scripts and main.js is the entry point for ESbuild)
 - You can keep html anywhere, (But use the bundle/main.js)
