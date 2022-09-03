@@ -33,9 +33,9 @@ const ground = new ground2D();
 
 //updating box3D parameters. everything is chainable.
 box.set.edge(true)
-       .set.opacity(0.5)
-       .set.x(4)
-       .set.z(4)
+   .set.opacity(0.5)
+   .set.x(4)
+   .set.z(4)
  
  // dom events => click, rightClick, leftClick, mouseEnter, mouseExit etc...
  box.on('longClick',(e)=> {
