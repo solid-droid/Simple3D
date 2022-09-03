@@ -3,11 +3,11 @@ Easy to use wrapper for BabylonJS
 Live Demo => https://solid-droid.github.io/Simple3D/app  
 __UnderDevelopment__  
 # Goals
-Make a 3d scene easily with presets
-Make a 3d scene in less than 10 lines of code
-Easily manage extended events and properties
-Easily manage resourses and models
-Make syntax Simple and Minimal
+Make a 3d scene easily with presets  
+Make a 3d scene in less than 10 lines of code  
+Easily manage extended events and properties  
+Easily manage resourses and models  
+Make syntax Simple and Minimal  
 
 # How to Use
 Library uses typescript and ESbuild to generate final javascript bundle.  
