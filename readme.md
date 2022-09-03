@@ -1,5 +1,5 @@
 # Simple3D
-Easy to use wrapper for ThreeJS
+Easy to use wrapper for BabylonJS
 Live Demo => https://solid-droid.github.io/Simple3D/app
 
 # Goals
